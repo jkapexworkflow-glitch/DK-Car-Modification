@@ -264,6 +264,21 @@ h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
     radial-gradient(900px 600px at 10% 95%, rgba(62,124,177,0.14), transparent 60%),
     var(--ink);
 }
+.hero::before {
+  content: '';
+  position: absolute; inset: -20%;
+  background: linear-gradient(115deg, transparent 40%, rgba(217,86,76,0.05) 48%, rgba(255,255,255,0.04) 50%, rgba(62,124,177,0.05) 52%, transparent 60%);
+  animation: heatsweep 9s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes heatsweep {
+  0%, 100% { transform: translateX(-12%) translateY(-4%); }
+  50% { transform: translateX(12%) translateY(4%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero::before { animation: none; }
+}
 .hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
