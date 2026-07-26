@@ -8,13 +8,26 @@
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="css/style.css">
 <meta name="theme-color" content="#0C0E11">
+<!-- Open Graph / WhatsApp & social link previews -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DK Car Modifications">
+<meta property="og:title" content="DK Car Modifications | Kampala's Full-Service Car Mod & Detailing Shop">
+<meta property="og:description" content="Body kits, wraps, wheels, suspension, performance tuning, and detailing in Kampala, Uganda. Free quotes via WhatsApp or call.">
+<meta property="og:image" content="https://REPLACE-WITH-YOUR-DEPLOYED-DOMAIN/assets/img/dk-shopfront-burnout.jpg">
+<meta property="og:image:width" content="1079">
+<meta property="og:image:height" content="2159">
+<meta property="og:url" content="https://REPLACE-WITH-YOUR-DEPLOYED-DOMAIN/index.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DK Car Modifications | Kampala's Full-Service Car Mod & Detailing Shop">
+<meta name="twitter:description" content="Body kits, wraps, wheels, suspension, performance tuning, and detailing in Kampala, Uganda. Free quotes via WhatsApp or call.">
+<meta name="twitter:image" content="https://REPLACE-WITH-YOUR-DEPLOYED-DOMAIN/assets/img/dk-shopfront-burnout.jpg">
 <!-- Local business schema for SEO / Google Maps discovery -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
   "name": "DK Car Modifications",
-  "image": "",
+  "image": "https://REPLACE-WITH-YOUR-DEPLOYED-DOMAIN/assets/img/dk-shopfront-burnout.jpg",
   "telephone": "+256785598590",
   "email": "lorenzojakim@gmail.com",
   "areaServed": ["Mukono", "Kampala", "Uganda"],
@@ -76,7 +89,7 @@
     <div class="video-bg" aria-hidden="true">
       <!-- Drop a licensed workshop/driving clip at assets/video/hero-loop.mp4 (+ .webm) to activate.
            Until then this fails silently and the CSS gradient hero background (already in place) shows instead. -->
-      <video autoplay muted loop playsinline preload="none" poster="">
+      <video autoplay muted loop playsinline preload="none" poster="assets/img/dk-shopfront-burnout.jpg">
         <source src="assets/video/hero-loop.webm" type="video/webm">
         <source src="assets/video/hero-loop.mp4" type="video/mp4">
       </video>
@@ -101,31 +114,35 @@
       </div>
 
       <div class="hero-visual reveal">
+        <div class="kb-media" aria-hidden="true">
+          <picture>
+            <source srcset="assets/img/dk-brand-hero-engine.webp" type="image/webp">
+            <img src="assets/img/dk-brand-hero-engine.jpg" alt="" loading="eager">
+          </picture>
+        </div>
         <div class="hero-ring" aria-hidden="true"></div>
-        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="150" cy="150" r="88" stroke="#2C3138" stroke-width="1"/>
-          <circle cx="150" cy="150" r="60" stroke="#D9564C" stroke-width="1.5"/>
-          <circle cx="150" cy="150" r="60" stroke="url(#heatgrad)" stroke-width="1.5" stroke-dasharray="6 340" stroke-dashoffset="0">
-            <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="6s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="150" cy="150" r="34" fill="#15181D" stroke="#3A4048" stroke-width="1"/>
-          <g stroke="#9AA1AB" stroke-width="1">
-            <line x1="150" y1="118" x2="150" y2="126"/>
-            <line x1="182" y1="150" x2="174" y2="150"/>
-            <line x1="150" y1="182" x2="150" y2="174"/>
-            <line x1="118" y1="150" x2="126" y2="150"/>
-          </g>
-          <line x1="150" y1="150" x2="170" y2="128" stroke="#EDEFF2" stroke-width="2" stroke-linecap="round"/>
-          <line x1="150" y1="150" x2="150" y2="120" stroke="#D9564C" stroke-width="2" stroke-linecap="round"/>
-          <defs>
-            <linearGradient id="heatgrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#C98A3B"/>
-              <stop offset="40%" stop-color="#D9564C"/>
-              <stop offset="70%" stop-color="#6B4FA0"/>
-              <stop offset="100%" stop-color="#3E7CB1"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <span class="hero-visual-tag">DK Car Modification &middot; studio build art</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CINEMATIC BAND — the shop is real ============ -->
+  <section class="cine-band">
+    <div class="kb-media kb-slow" aria-hidden="true">
+      <picture>
+        <source srcset="assets/img/dk-shopfront-burnout.webp" type="image/webp">
+        <img src="assets/img/dk-shopfront-burnout.jpg" alt="A matte-grey Subaru pulling out of the DK Car Modifications workshop bay in Mukono, tyres smoking on the forecourt" loading="lazy">
+      </picture>
+    </div>
+    <div class="cine-band-content">
+      <div class="container">
+        <span class="scene-label reveal">Ext. Workshop &mdash; Mukono</span>
+        <h2 class="reveal">Not a showroom render.<br>A working shop.</h2>
+        <p class="lead reveal">Every build that leaves our bay goes back out onto real Kampala tarmac and murram &mdash; not a studio floor. What you see on the road is what we stand behind.</p>
+        <div class="cine-actions reveal">
+          <a href="gallery.html" class="btn btn-primary">See the Gallery</a>
+          <a href="about.html" class="btn btn-outline">Meet the Workshop</a>
+        </div>
       </div>
     </div>
   </section>

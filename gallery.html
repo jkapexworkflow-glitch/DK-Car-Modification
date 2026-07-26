@@ -8,13 +8,26 @@
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="css/style.css">
 <meta name="theme-color" content="#0C0E11">
+<!-- Open Graph / WhatsApp & social link previews -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DK Car Modifications">
+<meta property="og:title" content="Gallery | DK Car Modifications">
+<meta property="og:description" content="Project gallery and before/after transformations from DK Car Modifications, Kampala.">
+<meta property="og:image" content="https://REPLACE-WITH-YOUR-DEPLOYED-DOMAIN/assets/img/dk-shopfront-burnout.jpg">
+<meta property="og:image:width" content="1079">
+<meta property="og:image:height" content="2159">
+<meta property="og:url" content="https://REPLACE-WITH-YOUR-DEPLOYED-DOMAIN/gallery.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gallery | DK Car Modifications">
+<meta name="twitter:description" content="Project gallery and before/after transformations from DK Car Modifications, Kampala.">
+<meta name="twitter:image" content="https://REPLACE-WITH-YOUR-DEPLOYED-DOMAIN/assets/img/dk-shopfront-burnout.jpg">
 <!-- Local business schema for SEO / Google Maps discovery -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
   "name": "DK Car Modifications",
-  "image": "",
+  "image": "https://REPLACE-WITH-YOUR-DEPLOYED-DOMAIN/assets/img/dk-shopfront-burnout.jpg",
   "telephone": "+256785598590",
   "email": "lorenzojakim@gmail.com",
   "areaServed": ["Mukono", "Kampala", "Uganda"],
@@ -71,6 +84,12 @@
 
 <main>
   <section class="page-hero">
+    <div class="kb-media" aria-hidden="true">
+      <picture>
+        <source srcset="assets/img/dk-brand-hero-engine.webp" type="image/webp">
+        <img src="assets/img/dk-brand-hero-engine.jpg" alt="" loading="eager">
+      </picture>
+    </div>
     <div class="container">
       <div class="breadcrumb reveal"><a href="index.html">Home</a> / Gallery</div>
       <span class="eyebrow reveal">The Work</span>
@@ -79,8 +98,45 @@
     </div>
   </section>
 
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Studio Craft</span><h2>The DK look, in frame</h2></div>
+        <p>Concept and brand renders — not specific client jobs — used here to set the tone while real project photos come in below.</p>
+      </div>
+      <div class="grid grid-4">
+        <div class="card photo-card" style="aspect-ratio:3/4; padding:0; overflow:hidden;" data-lightbox data-caption="DK Car Modification — studio concept render">
+          <div class="kb-media"><picture><source srcset="assets/img/dk-brand-hero-engine.webp" type="image/webp"><img src="assets/img/dk-brand-hero-engine.jpg" alt="Stylised DK Car Modification engine-bay art" loading="lazy"></picture></div>
+          <span class="badge-concept">Concept Art</span>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+        </div>
+        <div class="card photo-card" style="aspect-ratio:3/4; padding:0; overflow:hidden;" data-lightbox data-caption="DK Car Modification — studio concept render">
+          <div class="kb-media kb-alt"><picture><source srcset="assets/img/dk-brand-hero-gtr.webp" type="image/webp"><img src="assets/img/dk-brand-hero-gtr.jpg" alt="Stylised custom GTR build art" loading="lazy"></picture></div>
+          <span class="badge-concept">Concept Art</span>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+        </div>
+        <div class="card photo-card" style="aspect-ratio:3/4; padding:0; overflow:hidden;" data-lightbox data-caption="DK Car Modification — studio concept render">
+          <div class="kb-media"><picture><source srcset="assets/img/dk-brand-hero-sti.webp" type="image/webp"><img src="assets/img/dk-brand-hero-sti.jpg" alt="Stylised DK Car Modification Subaru STI art" loading="lazy"></picture></div>
+          <span class="badge-concept">Concept Art</span>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+        </div>
+        <div class="card photo-card" style="aspect-ratio:3/4; padding:0; overflow:hidden;" data-lightbox data-caption="DK Car Modifications — Mukono workshop bay">
+          <div class="kb-media kb-alt"><picture><source srcset="assets/img/dk-shopfront-burnout.webp" type="image/webp"><img src="assets/img/dk-shopfront-burnout.jpg" alt="DK Car Modifications workshop bay, Mukono" loading="lazy"></picture></div>
+          <span class="badge-concept" style="background:rgba(217,86,76,0.85); border-color:var(--accent-strong);">Real Workshop</span>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="panel-gap" aria-hidden="true"></div>
+
   <section class="section">
     <div class="container">
+
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Client Builds</span><h2>Completed project photos</h2></div>
+      </div>
 
       <div class="filter-bar reveal">
         <button class="filter-chip active" data-filter="all">All Work</button>
@@ -179,7 +235,8 @@
         <p>A looping workshop or driving reel goes here — the video player is fully wired up, just drop footage into <code>assets/video/</code>.</p>
       </div>
       <div class="video-showcase reveal">
-        <video autoplay muted loop playsinline preload="none" poster="">
+        <div class="video-backdrop" aria-hidden="true"><img src="assets/img/dk-brand-hero-gtr.jpg" alt="" loading="lazy"></div>
+        <video autoplay muted loop playsinline preload="none" poster="assets/img/dk-shopfront-burnout.jpg">
           <source src="assets/video/workshop-loop.webm" type="video/webm">
           <source src="assets/video/workshop-loop.mp4" type="video/mp4">
         </video>

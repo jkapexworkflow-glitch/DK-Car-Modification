@@ -145,6 +145,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---- Lightbox: click any [data-lightbox] photo card to view enlarged ----
+  const lightboxTriggers = document.querySelectorAll('[data-lightbox]');
+  if (lightboxTriggers.length) {
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = `
+      <button class="lightbox-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 5l14 14M19 5 5 19"/></svg>
+      </button>
+      <img src="" alt="">
+      <div class="lightbox-caption"></div>
+    `;
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCaption = lb.querySelector('.lightbox-caption');
+
+    const openLightbox = (src, caption) => {
+      lbImg.src = src;
+      lbImg.alt = caption || '';
+      lbCaption.textContent = caption || '';
+      lb.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeLightbox = () => {
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+    };
+
+    lightboxTriggers.forEach((el) => {
+      el.addEventListener('click', () => {
+        const img = el.querySelector('img');
+        if (!img) return;
+        openLightbox(img.currentSrc || img.src, el.getAttribute('data-caption') || img.alt);
+      });
+    });
+    lb.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  }
+
   // ---- Quote / contact form -> WhatsApp handoff (no backend yet, see project notes) ----
   const quoteForm = document.querySelector('#quote-form');
   if (quoteForm) {

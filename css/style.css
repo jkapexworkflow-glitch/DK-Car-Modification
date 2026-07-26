@@ -754,3 +754,180 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   outline: 2px solid var(--accent-strong);
   outline-offset: 3px;
 }
+
+/* ==========================================================================
+   CINEMATIC LAYER — Ken Burns motion, full-bleed bands, lightbox
+   Added when real project photography replaced placeholder slots.
+   All motion respects prefers-reduced-motion via the global rule above.
+   ========================================================================== */
+
+/* ---- Ken Burns media: slow zoom/drift loop on any real photo ---- */
+.kb-media {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.kb-media picture,
+.kb-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: kenburns 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.kb-media.kb-slow img { animation-duration: 38s; }
+.kb-media.kb-alt img { animation-name: kenburns-alt; animation-duration: 30s; }
+@keyframes kenburns {
+  0%   { transform: scale(1.06) translate(0, 0); }
+  100% { transform: scale(1.16) translate(-1.6%, -1.2%); }
+}
+@keyframes kenburns-alt {
+  0%   { transform: scale(1.14) translate(-1.4%, 0.8%); }
+  100% { transform: scale(1.04) translate(0.6%, -0.6%); }
+}
+
+/* ---- Hero visual: real photo replaces line-art placeholder ---- */
+.hero-visual {
+  border-radius: var(--radius);
+  border: 1px solid var(--hairline-strong);
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6);
+}
+.hero-visual .kb-media { position: absolute; inset: 0; border-radius: inherit; }
+.hero-visual .kb-media::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(200deg, transparent 45%, rgba(12,14,17,0.55) 100%);
+  z-index: 1;
+}
+.hero-visual .hero-ring { z-index: 2; inset: 10px; opacity: 0.55; }
+.hero-visual .hero-visual-tag {
+  position: absolute; left: 16px; bottom: 16px; z-index: 3;
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-muted);
+  background: rgba(12,14,17,0.72); border: 1px solid var(--hairline-strong);
+  padding: 6px 10px; border-radius: 999px;
+}
+
+/* ---- Cinematic band: full-bleed image section with scene-label overlay ---- */
+.cine-band {
+  position: relative;
+  min-height: 64vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+}
+.cine-band .kb-media { position: absolute; inset: 0; z-index: 0; }
+.cine-band::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(0deg, rgba(12,14,17,0.96) 0%, rgba(12,14,17,0.55) 42%, rgba(12,14,17,0.35) 100%),
+    linear-gradient(100deg, rgba(12,14,17,0.35) 0%, transparent 55%);
+}
+.cine-band-content {
+  position: relative; z-index: 2;
+  width: 100%;
+  padding: clamp(48px, 9vw, 96px) 0 clamp(40px, 6vw, 64px);
+}
+.scene-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  border: 1px solid var(--hairline-strong);
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(12,14,17,0.55);
+  backdrop-filter: blur(6px);
+}
+.scene-label::before { content: '\25CF'; color: var(--accent); font-size: 0.6em; animation: pulse-rec 1.8s ease-in-out infinite; }
+@keyframes pulse-rec { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+.cine-band h2 { max-width: 18ch; margin-bottom: 16px; }
+.cine-band p.lead { color: rgba(237,239,242,0.86); max-width: 52ch; margin-bottom: 28px; font-size: 1.05rem; }
+.cine-band .cine-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.cine-band-note {
+  position: relative; z-index: 2;
+  font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-faint);
+  margin-top: 22px; max-width: 60ch;
+}
+
+/* Page-hero atmosphere wash (interior pages) */
+.page-hero { position: relative; overflow: hidden; isolation: isolate; }
+.page-hero .kb-media { position: absolute; inset: 0; z-index: 0; opacity: 0.4; }
+.page-hero .kb-media::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(12,14,17,0.55) 0%, rgba(12,14,17,0.96) 88%), var(--ink);
+  mix-blend-mode: normal;
+}
+.page-hero > .container { position: relative; z-index: 1; }
+
+/* ---- Real-photo card treatment (replaces .photo-slot when populated) ---- */
+.photo-card { position: relative; overflow: hidden; }
+.photo-card .kb-media { position: absolute; inset: 0; }
+.photo-card-caption {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: 16px 18px;
+  background: linear-gradient(0deg, rgba(12,14,17,0.92) 0%, transparent 100%);
+}
+.photo-card-caption b { display: block; font-size: 0.86rem; color: var(--text); font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.02em; }
+.photo-card-caption span { font-size: 0.74rem; color: var(--text-faint); font-family: var(--font-mono); }
+.photo-card[data-lightbox] { cursor: zoom-in; }
+.photo-card .zoom-hint {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(12,14,17,0.6); border: 1px solid var(--hairline-strong);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: scale(0.85);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.photo-card:hover .zoom-hint { opacity: 1; transform: scale(1); }
+.photo-card .zoom-hint svg { width: 15px; height: 15px; color: var(--text); }
+
+/* Studio-art badge — distinguishes brand/concept renders from completed client jobs */
+.badge-concept {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--text);
+  background: rgba(12,14,17,0.72); border: 1px solid var(--hairline-strong);
+  padding: 5px 9px; border-radius: 999px;
+}
+
+/* ---- Lightbox ---- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(6,7,9,0.94);
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s var(--ease);
+}
+.lightbox.is-open { opacity: 1; pointer-events: auto; }
+.lightbox img { max-width: min(1100px, 92vw); max-height: 84vh; border-radius: var(--radius); box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+.lightbox-caption { position: absolute; left: 0; right: 0; bottom: 24px; text-align: center; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.78rem; }
+.lightbox-close {
+  position: absolute; top: 22px; right: 26px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--hairline-strong);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text);
+}
+.lightbox-close svg { width: 18px; height: 18px; }
+
+@media (max-width: 700px) {
+  .cine-band { min-height: 52vh; }
+}
+
+/* Video showcase — blurred still backdrop so the "add video" state feels intentional, not empty */
+.video-showcase .video-backdrop { position: absolute; inset: 0; z-index: 0; }
+.video-showcase .video-backdrop img { width: 100%; height: 100%; object-fit: cover; filter: blur(18px) brightness(0.55) saturate(1.1); transform: scale(1.15); }
+.video-showcase .video-fallback { z-index: 1; background: rgba(12,14,17,0.5); backdrop-filter: blur(2px); }
