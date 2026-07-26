@@ -931,3 +931,41 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .video-showcase .video-backdrop { position: absolute; inset: 0; z-index: 0; }
 .video-showcase .video-backdrop img { width: 100%; height: 100%; object-fit: cover; filter: blur(18px) brightness(0.55) saturate(1.1); transform: scale(1.15); }
 .video-showcase .video-fallback { z-index: 1; background: rgba(12,14,17,0.5); backdrop-filter: blur(2px); }
+
+/* ==========================================================================
+   AMBIENT DEPTH LAYER — every section carries real imagery, nothing reads
+   as unfinished. Reusable low-opacity Ken Burns wash for otherwise-flat
+   sections, plus a tasteful ember-spark canvas for hero-adjacent moments.
+   ========================================================================== */
+
+.section-media { position: relative; isolation: isolate; overflow: hidden; }
+.section-media-bg {
+  position: absolute; inset: 0; z-index: 0;
+  opacity: 0.16;
+}
+.section-media-bg img { width: 100%; height: 100%; object-fit: cover; animation: kenburns 34s ease-in-out infinite alternate; }
+.section-media-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, var(--ink) 0%, rgba(12,14,17,0.55) 30%, rgba(12,14,17,0.55) 70%, var(--ink) 100%);
+}
+.section-media > .container { position: relative; z-index: 1; }
+.section-media-bg.bg-strong { opacity: 0.28; }
+.section-media-bg.bg-right img { object-position: right center; }
+.section-media-bg.bg-left img { object-position: left center; }
+
+/* Footer atmosphere — subtle, so the site never fades to a flat dead-end */
+footer.site-footer { position: relative; isolation: isolate; overflow: hidden; }
+footer.site-footer .section-media-bg { opacity: 0.1; }
+footer.site-footer .section-media-bg::after { background: linear-gradient(180deg, var(--ink) 0%, rgba(12,14,17,0.7) 40%, var(--surface) 100%); }
+
+/* Ember canvas — small drifting sparks over hero / cine-band moments only */
+#emberCanvas { position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: screen; opacity: 0.75; }
+
+/* Category-tinted media washes on Services (reusing shared assets, distinct crops/tints per section) */
+.svc-media-wrap { position: relative; }
+.svc-media-wrap .section-media-bg { opacity: 0.14; }
+
+@media (prefers-reduced-motion: reduce) {
+  #emberCanvas { display: none; }
+}

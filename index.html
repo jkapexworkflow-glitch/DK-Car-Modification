@@ -86,6 +86,7 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <canvas id="emberCanvas" aria-hidden="true"></canvas>
     <div class="video-bg" aria-hidden="true">
       <!-- Drop a licensed workshop/driving clip at assets/video/hero-loop.mp4 (+ .webm) to activate.
            Until then this fails silently and the CSS gradient hero background (already in place) shows instead. -->
@@ -150,7 +151,10 @@
   <div class="panel-gap" aria-hidden="true"></div>
 
   <!-- ============ SERVICES TEASER ============ -->
-  <section class="section" id="services">
+  <section class="section section-media" id="services">
+    <div class="section-media-bg bg-right" aria-hidden="true">
+      <picture><source srcset="assets/img/dk-atmosphere-raptor.webp" type="image/webp"><img src="assets/img/dk-atmosphere-raptor.jpg" alt="" loading="lazy"></picture>
+    </div>
     <div class="container">
       <div class="section-head reveal">
         <div>
@@ -239,7 +243,10 @@
   <div class="panel-gap" aria-hidden="true"></div>
 
   <!-- ============ PROCESS ============ -->
-  <section class="section">
+  <section class="section section-media">
+    <div class="section-media-bg bg-left" aria-hidden="true">
+      <picture><source srcset="assets/img/dk-atmosphere-hilux.webp" type="image/webp"><img src="assets/img/dk-atmosphere-hilux.jpg" alt="" loading="lazy"></picture>
+    </div>
     <div class="container">
       <div class="section-head reveal">
         <div><span class="eyebrow">How It Works</span><h2>From enquiry to delivery</h2></div>
@@ -273,7 +280,10 @@
   <div class="panel-gap" aria-hidden="true"></div>
 
   <!-- ============ BEFORE / AFTER TEASER ============ -->
-  <section class="section">
+  <section class="section section-media">
+    <div class="section-media-bg bg-right bg-strong" aria-hidden="true">
+      <picture><source srcset="assets/img/dk-atmosphere-harrier.webp" type="image/webp"><img src="assets/img/dk-atmosphere-harrier.jpg" alt="" loading="lazy"></picture>
+    </div>
     <div class="container">
       <div class="section-head reveal">
         <div><span class="eyebrow">Proof, Not Promises</span><h2>Drag the line</h2></div>
@@ -311,7 +321,10 @@
   <div class="panel-gap" aria-hidden="true"></div>
 
   <!-- ============ TESTIMONIALS ============ -->
-  <section class="section">
+  <section class="section section-media">
+    <div class="section-media-bg bg-left" aria-hidden="true">
+      <picture><source srcset="assets/img/dk-atmosphere-kampala-road.webp" type="image/webp"><img src="assets/img/dk-atmosphere-kampala-road.jpg" alt="" loading="lazy"></picture>
+    </div>
     <div class="container">
       <div class="section-head reveal">
         <div><span class="eyebrow">Client Feedback</span><h2>What Kampala drivers say</h2></div>
@@ -344,7 +357,10 @@
   </section>
 
   <!-- ============ CTA BAND ============ -->
-  <section class="section-tight">
+  <section class="section-tight section-media">
+    <div class="section-media-bg bg-strong" aria-hidden="true">
+      <picture><source srcset="assets/img/dk-brand-hero-gtr.webp" type="image/webp"><img src="assets/img/dk-brand-hero-gtr.jpg" alt="" loading="lazy"></picture>
+    </div>
     <div class="container">
       <div class="cta-band reveal">
         <div>
@@ -363,6 +379,9 @@
 </main>
 
 <footer class="site-footer">
+  <div class="section-media-bg" aria-hidden="true">
+    <picture><source srcset="assets/img/dk-brand-hero-sti.webp" type="image/webp"><img src="assets/img/dk-brand-hero-sti.jpg" alt="" loading="lazy"></picture>
+  </div>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col footer-brand">

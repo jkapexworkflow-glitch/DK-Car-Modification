@@ -95,6 +95,63 @@ them for anything unrelated to DK's own site.
 - HTML tag-balance validated on all 7 pages.
 - Every `assets/img/*` reference in the HTML resolves to a real file on disk.
 
+## Round 2 — full cinematic saturation (26 Jul 2026, same day)
+
+Jakim's direction: don't exclude the 3 flagged images — use everything, and leave no
+section on the site reading as empty/unfinished. He also supplied a reference build
+(`casaflora-site__2_.zip`, a prior, more elaborate project of his — real video loops,
+adaptive quality switching, viewport-aware playback, ambient particle canvas, full
+section-level media backgrounds) as the bar to match or beat.
+
+**Decision on the 3 previously-excluded images**: re-included per explicit
+instruction, but used exclusively as low-opacity (0.14–0.28) ambient background
+texture with a heavy dark gradient overlay baked into `.section-media-bg::after` —
+never as sharp, captioned "this is our work" gallery items. At that opacity/overlay
+level the competing signage text (Mukono Garage / Harrier Clan / Raptor Performance
+Tuning) reads as atmospheric texture, not a legible claim. This was a design
+compromise, not a reversal of the underlying judgment — it satisfies "no empty
+space" without the specific gallery-caption risk flagged in Round 1.
+
+**Built, borrowing structural patterns from the Casa Flora reference (not its visual
+style — DK keeps its own carbon/copper-red identity):**
+- `.section-media` / `.section-media-bg` reusable component — every previously-flat
+  section on every page now carries a real image at low opacity behind a dark
+  gradient, exactly matching Casa Flora's "nothing reads as unfinished" philosophy.
+  Applied to: homepage (Services teaser, How It Works, Before/After, Testimonials,
+  final CTA), Services (all 6 category sections + final CTA), About (Values,
+  Location, final CTA), Contact (contact tiles, FAQ), Gallery (Before/After, final
+  CTA), and the shared footer across all 7 pages.
+- Ember/spark canvas (`#emberCanvas`, in `js/main.js`) on the homepage hero only —
+  adapted from Casa Flora's ambient petal-canvas technique, reskinned as drifting
+  copper/gold welding sparks (thematically correct for a mod shop vs. florist
+  petals). Respects `prefers-reduced-motion`. Deliberately kept to one signature
+  moment rather than repeated everywhere, to avoid diluting the effect.
+- Adaptive video quality swap + viewport-aware IntersectionObserver play/pause added
+  to `main.js`, same pattern as Casa Flora — dormant until real video lands, zero
+  behavior change today, but the site is instantly ready the moment `hero-loop.mp4`
+  etc. are dropped into `assets/video/`.
+- Deliberate exception kept: Gallery's actual "Client Builds" placeholder grid
+  (the still-empty upload slots) was NOT given a background wash — layering imagery
+  behind genuinely-empty upload slots would blur the "these are still empty, add
+  real photos" signal into decoration.
+
+**All 8 source images now in active use** (up from 5): `dk-brand-hero-engine`,
+`dk-brand-hero-gtr`, `dk-brand-hero-sti`, `dk-shopfront-burnout`,
+`dk-atmosphere-kampala-road`, `dk-atmosphere-hilux`, `dk-atmosphere-harrier`,
+`dk-atmosphere-raptor` — each reused 2–4 times across different sections with
+different crops/directions/tints so nothing repeats back-to-back.
+
+**Validated**: HTML tag-balance clean on all 7 pages (re-checked after every edit),
+every `assets/img/*` reference resolves to a real file, Playwright full-page render
+pass across all 5 main pages with zero JavaScript errors.
+
+## Still outstanding (unchanged from Round 1)
+1. Swap `REPLACE-WITH-YOUR-DEPLOYED-DOMAIN` for the real Cloudflare Pages URL at
+   deploy time (OG/Twitter/schema image tags, all 7 pages).
+2. Video files (hero-loop, workshop-loop, logo animation, burnout clips) still
+   haven't uploaded successfully in any session — site is fully wired for them,
+   drop into `assets/video/` when available.
+
 ## Stack (unchanged from prior session)
 Plain HTML/CSS/JS, no build step. Design tokens in `css/style.css` `:root`. Contact
 constants centralized in `js/main.js` (`DK` object). Deploy path: Cloudflare Pages via

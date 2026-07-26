@@ -185,6 +185,81 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
   }
 
+  // ---- Adaptive video quality: swap to lighter encode on small/slow connections ----
+  (function adaptiveVideo() {
+    const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+    const isSmall = window.innerWidth < 760;
+    const isSlow = conn && (conn.saveData || /2g|3g/.test(conn.effectiveType || ''));
+    if (!isSmall && !isSlow) return;
+    document.querySelectorAll('video source[src*="-720."]').forEach((src) => {
+      src.setAttribute('src', src.getAttribute('src').replace('-720.', '-480.'));
+    });
+    document.querySelectorAll('video').forEach((v) => v.load());
+  })();
+
+  // ---- Viewport-aware video: background loops only decode while on screen ----
+  const bgVideos = document.querySelectorAll('.hero-bg video, .cine-band video, .video-showcase video');
+  if ('IntersectionObserver' in window && bgVideos.length) {
+    const videoIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const v = entry.target;
+        if (entry.isIntersecting) v.play?.().catch(() => {});
+        else v.pause?.();
+      });
+    }, { rootMargin: '200px 0px' });
+    bgVideos.forEach((v) => videoIO.observe(v));
+  }
+
+  // ---- Ember canvas: drifting sparks over the hero, welding/grinding motif ----
+  const emberCanvas = document.getElementById('emberCanvas');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (emberCanvas && !reduceMotion) {
+    const ctx = emberCanvas.getContext('2d');
+    let w, h, sparks = [];
+    const parent = emberCanvas.parentElement;
+    const COUNT = window.innerWidth < 720 ? 14 : 26;
+    const COLORS = ['#D9564C', '#C98A3B', '#EDEFF2'];
+
+    function resize() {
+      w = emberCanvas.width = parent.clientWidth;
+      h = emberCanvas.height = parent.clientHeight;
+    }
+    function makeSpark(fromBottom) {
+      return {
+        x: Math.random() * w,
+        y: fromBottom ? h + Math.random() * 40 : h - Math.random() * h,
+        r: Math.random() * 1.8 + 0.6,
+        speed: Math.random() * 0.5 + 0.25,
+        drift: Math.random() * 0.6 - 0.3,
+        flicker: Math.random() * Math.PI * 2,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      };
+    }
+    function init() {
+      resize();
+      sparks = Array.from({ length: COUNT }, () => makeSpark(false));
+    }
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      sparks.forEach((s) => {
+        s.flicker += 0.08;
+        const alpha = 0.35 + Math.sin(s.flicker) * 0.25;
+        ctx.globalAlpha = Math.max(0, alpha);
+        ctx.fillStyle = s.color;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+        s.y -= s.speed;
+        s.x += s.drift + Math.sin(s.flicker * 0.5) * 0.15;
+        if (s.y < -10) Object.assign(s, makeSpark(true));
+      });
+      requestAnimationFrame(draw);
+    }
+    init();
+    window.addEventListener('resize', resize);
+    draw();
+  }
+
   // ---- Quote / contact form -> WhatsApp handoff (no backend yet, see project notes) ----
   const quoteForm = document.querySelector('#quote-form');
   if (quoteForm) {
