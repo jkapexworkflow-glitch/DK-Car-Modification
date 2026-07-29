@@ -300,3 +300,41 @@ video still playing (`paused: false`, `currentTime` advancing), and — critical
 sampled actual rendered pixels from the video area and confirmed real variance
 (values ranging ~21-105 across samples, not a single flat overlay color), proving
 an actual video frame is visible on screen rather than trusting DOM state alone.
+
+## Mobile nav overflow bug + nav/gallery completeness pass (29 Jul 2026)
+
+**Real bug found and fixed**: at 320px-wide viewports (common budget Android
+phones in the Kampala market), the header's total content width (logo + "Get a
+Quote" pill + hamburger) was 340px — 20px wider than the 320px screen. This
+pushed the hamburger toggle button partially off the right edge of the visible
+viewport, making it unreachable without horizontal scrolling, which most people
+never think to try. This is the most likely explanation for "the nav only shows
+WhatsApp and Call" — the actual menu trigger was there but effectively invisible/
+unreachable on narrower real phones, even though it worked fine in every
+360px+ viewport test run so far.
+
+Fix: below 420px, the "Get a Quote" pill is now hidden from the closed header
+state (it's redundant — available in the hero, and Contact is one tap away in
+the menu itself), leaving only the hamburger toggle, which now also has a
+visible border/box around it so it reads unambiguously as a tappable control
+rather than three thin lines that could be missed at a glance.
+
+Verified: at both 320px and 360px, `scrollWidth === clientWidth` (zero overflow)
+and the toggle's full bounding box now sits within the viewport.
+
+**Nav expanded to 7 items** per request: added FAQs (→ `contact.html#faq`, an
+anchor to the existing FAQ section) and Location (→ `about.html#location`, new
+anchor id added to the existing "Where We Are" section) as items 06 and 07,
+alongside the original Home/Services/Gallery/About/Contact. Verified via DOM:
+all 7 items present with correct labels and taglines.
+
+**Full image audit performed**: cross-checked every image file uploaded across
+the entire conversation (8 from the original DK.zip + 14 from the later direct
+uploads = 22 total) against what's actually deployed in `assets/img/` — confirmed
+all 22 were already in use somewhere on the site. However, 4 of them
+(`dk-atmosphere-kampala-road`, `dk-atmosphere-hilux`, `dk-atmosphere-harrier`,
+`dk-atmosphere-raptor`) were only used as low-opacity background washes, never
+as a featured, clearly-visible gallery item. Added all 4 to the Gallery page's
+"Studio Craft" section (now 8 cards, up from 4), so every single image is not
+just technically "used" but visibly featured somewhere a visitor will actually
+see it clearly.
