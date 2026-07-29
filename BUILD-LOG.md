@@ -275,3 +275,28 @@ Verified live: video loads and plays correctly once scrolled into view (the
 viewport-aware IntersectionObserver system from Round 2 correctly holds it paused
 until visible, then plays — confirmed via `currentTime` advancing and successful
 206 partial-content network responses for the video file).
+
+## Hotfix — video-fallback overlay never removed, hiding the real video (29 Jul 2026)
+
+Bug reported after live deploy: the Gallery "Workshop In Motion" section still
+showed the "Add video: workshop-loop.mp4" placeholder box even after the real
+video was wired in and confirmed technically playing.
+
+Root cause: the `.video-fallback` div was always meant to be *deleted* once real
+footage replaced the placeholder — same pattern as the photo-slot placeholders
+removed elsewhere in the gallery grid — but it was left in place this time. It
+has `z-index: 1` with its own semi-transparent background and blur, permanently
+stacked on top of the video regardless of whether the video loaded successfully,
+since there was never a JS mechanism to hide it on successful load. Previous
+verification checked only the video element's DOM state (readyState, paused,
+currentTime advancing) and confirmed it was genuinely playing underneath — but
+never checked whether the overlay UI was visually hiding it, which it wasn't.
+
+Fix: removed the `.video-fallback` div entirely from the gallery video-showcase
+now that real footage is in place.
+
+Verified properly this time: confirmed `.video-fallback` count is 0 in the DOM,
+video still playing (`paused: false`, `currentTime` advancing), and — critically —
+sampled actual rendered pixels from the video area and confirmed real variance
+(values ranging ~21-105 across samples, not a single flat overlay color), proving
+an actual video frame is visible on screen rather than trusting DOM state alone.
