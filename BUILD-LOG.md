@@ -226,3 +226,36 @@ for each. Verified via Playwright: desktop nav text is clean ("Home / Services /
 Gallery / About / Contact"), `.nav-menu-bg` computes to `display: none` on desktop
 across all 7 pages, and the mobile full-screen menu still shows the full numbered/
 tagline treatment correctly.
+
+## Video asset added — hero-loop (29 Jul 2026)
+
+Jakim's `LOGO_ANIMATION.mp4` finally landed successfully (2.6MB, 1280x720, H.264,
+24fps, 10s, originally with an AAC audio track). Confirmed on disk before touching
+anything — this is the first video file to actually arrive in any session.
+
+Content: a dark, moody animated DK brand/logo reveal (consistently dark background,
+avg RGB ~40-55 across all 10 seconds) — matches the site's carbon-dark aesthetic
+directly, no color grading needed.
+
+**Processed and activated as the homepage hero background loop**
+(`assets/video/hero-loop.mp4` + `.webm`, the slot that was already fully wired and
+waiting):
+- Re-encoded to H.264 (main profile, faststart for streaming) and VP9/WebM, both
+  with audio stripped (`-an`) since this is an autoplay/muted/looping background
+  layer — no audio track needed and it shrinks file size further.
+- Output sizes: 1.6MB (mp4), 1.2MB (webm) — well inside the site's own "under 8MB"
+  budget.
+- Extracted a real poster frame from the video (previously used a placeholder
+  photo as poster) so there's no visual mismatch on first paint.
+- Updated `index.html`: removed the "drop a video here" placeholder comment,
+  switched `preload="none"` to `preload="auto"` now that there's real content to
+  preload.
+
+**Not used elsewhere**: the gallery's "Workshop In Motion" video showcase still
+shows its placeholder — that section's copy specifically asks for workshop/install
+action footage, and reusing a logo-reveal clip there would be a content mismatch,
+not a genuine second video. Left honestly empty pending real workshop footage.
+
+**Verified live** via Playwright: video element reports `readyState: 4` (fully
+loaded/playable), correct 1280x720 dimensions, `paused: false` (confirmed actually
+autoplaying), browser selected the WebM source as expected, zero failed requests.
