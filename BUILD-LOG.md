@@ -206,3 +206,23 @@ dk-detailing-polish, dk-interior-wheel-dash, dk-interior-cabin.
    deploy time (OG/Twitter/schema image tags, all 7 pages).
 2. Video files still haven't uploaded successfully in any session — site is fully
    wired for them, drop into `assets/video/` when available.
+
+## Hotfix — nav-menu-bg / nav-link taglines leaking onto desktop (29 Jul 2026)
+
+Bug reported after live deploy: on desktop-width screens, a large Audi R8 image was
+rendering statically at the top of the page (overlapping the header/hero), and the
+nav links showed raw concatenated text like "01HOME START" instead of just "Home."
+
+Root cause: `.nav-menu-bg` (the mobile full-screen menu's Ken Burns backdrop) and
+`.nav-link-num` / `.nav-link-text em` (the mobile menu's numbered/tagline treatment)
+were only ever styled *inside* the `@media (max-width: 900px)` block. On desktop
+widths, those elements had zero CSS applied — so the background image rendered as a
+plain oversized in-flow `<img>`, and the numbering/tagline spans rendered as plain
+inline text next to the link label instead of being hidden.
+
+Fix: added explicit desktop-default rules (`display: none`) for all three elements
+above the media query, with the mobile query now explicitly re-enabling `display`
+for each. Verified via Playwright: desktop nav text is clean ("Home / Services /
+Gallery / About / Contact"), `.nav-menu-bg` computes to `display: none` on desktop
+across all 7 pages, and the mobile full-screen menu still shows the full numbered/
+tagline treatment correctly.

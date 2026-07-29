@@ -232,8 +232,14 @@ h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
 .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
 .nav-toggle.is-open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
 
+/* Desktop default: mobile-menu-only decoration stays fully hidden until the 900px breakpoint */
+.nav-menu-bg { display: none; }
+.nav-link-num,
+.nav-link-text em { display: none; }
+
 @media (max-width: 900px) {
   .nav-menu-bg {
+    display: block;
     position: fixed; inset: 0; z-index: 149;
     opacity: 0; visibility: hidden;
     transition: opacity 0.4s var(--ease);
@@ -284,9 +290,9 @@ h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
   .nav-link-item:nth-child(3) a { transition-delay: 0.16s; }
   .nav-link-item:nth-child(4) a { transition-delay: 0.21s; }
   .nav-link-item:nth-child(5) a { transition-delay: 0.26s; }
-  .nav-link-num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-strong); font-weight: 400; }
+  .nav-link-num { display: inline; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-strong); font-weight: 400; }
   .nav-link-text { display: flex; flex-direction: column; gap: 2px; }
-  .nav-link-text em { font-style: normal; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: none; color: var(--text-faint); }
+  .nav-link-text em { display: block; font-style: normal; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: none; color: var(--text-faint); }
   .nav-link-item a:hover, .nav-link-item a.active { color: var(--text); }
   .nav-link-item a.active .nav-link-num { color: var(--text); }
 
