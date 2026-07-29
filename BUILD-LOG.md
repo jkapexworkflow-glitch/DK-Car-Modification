@@ -156,3 +156,53 @@ pass across all 5 main pages with zero JavaScript errors.
 Plain HTML/CSS/JS, no build step. Design tokens in `css/style.css` `:root`. Contact
 constants centralized in `js/main.js` (`DK` object). Deploy path: Cloudflare Pages via
 Wrangler CLI, same as the Blush Café and portfolio projects.
+
+## Round 3 — real photo set + full-screen nav (26 Jul 2026, same day)
+
+Jakim supplied 14 new Gemini-generated images (all direct downloads, clean 16:9,
+no letterboxing this time) — 12 matching the prompt pack exactly, plus a stock/
+modified LC300 pair and a stock/modified Camry pair for genuine before/after use.
+Every single one carries correct, consistent "DK CAR MODIFICATION" branding — the
+prompt-pack fix from last round worked.
+
+**Gallery grid**: all 12 "add photo" placeholder slots replaced with real photos,
+each re-captioned to accurately describe the actual image (rather than forcing
+real photos into placeholder captions that didn't quite match). Final category
+mix: exterior ×3, wheels ×3, wraps ×1, performance ×1, interior ×2, detailing ×2.
+
+**Before/after sliders (all 3 across the site)**: wired with the two genuine
+stock→modified pairs — Camry (homepage teaser + gallery slider 1) and Land Cruiser
+300 (gallery slider 2). Copy deliberately says "the kind of transformation we
+deliver" rather than claiming a specific real completed job — these are strong
+illustrative renders, not documentation of an actual client vehicle, and that
+distinction matters.
+
+**Mobile navigation rebuilt from scratch**: previously just a plain flat-color
+slide-in panel with static text links. Now a full-screen cinematic menu: numbered
+entries (01–05) with taglines, Ken Burns background image, staggered reveal
+animation on open, correct per-page `active` state, and closes via link click,
+backdrop click, or Escape key. Focus moves to the first link on open.
+
+**Validated**: HTML tag-balance clean on all 7 pages (found and fixed one missing
+closing `</div>` introduced mid-edit in the gallery grid). Playwright full-page
+render pass across all 7 pages, zero console/JS errors, zero failed requests
+(excluding the still-pending video files). Programmatic DOM checks: 16 total
+gallery photo-cards, 0 broken images (all load at full 1376px resolution), filter
+chips correctly show/hide by category, all 4 before/after images load correctly,
+nav menu opens/closes correctly with correct active state confirmed on Home,
+Services, and Gallery.
+
+## Images now in use (28 total across 3 rounds)
+Round 1 set (5): dk-brand-hero-engine, dk-brand-hero-gtr, dk-brand-hero-sti,
+dk-shopfront-burnout, dk-atmosphere-kampala-road.
+Round 2 re-add (3): dk-atmosphere-hilux, dk-atmosphere-harrier, dk-atmosphere-raptor.
+Round 3 (14): dk-lc300-modified-lot, dk-lc300-modified-field, dk-lc300-stock,
+dk-camry-modified, dk-camry-stock, dk-wheel-before-after-composite, dk-wrap-install,
+dk-engine-bay, dk-wheel-fender-closeup, dk-supra-exterior, dk-ceramic-beading,
+dk-detailing-polish, dk-interior-wheel-dash, dk-interior-cabin.
+
+## Still outstanding (unchanged)
+1. Swap `REPLACE-WITH-YOUR-DEPLOYED-DOMAIN` for the real Cloudflare Pages URL at
+   deploy time (OG/Twitter/schema image tags, all 7 pages).
+2. Video files still haven't uploaded successfully in any session — site is fully
+   wired for them, drop into `assets/video/` when available.

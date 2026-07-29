@@ -61,14 +61,18 @@
       DK <span>MODS</span>
     </a>
     <nav aria-label="Primary">
+      <div class="nav-menu-bg" aria-hidden="true">
+        <picture><source srcset="assets/img/dk-brand-hero-engine.webp" type="image/webp"><img src="assets/img/dk-brand-hero-engine.jpg" alt=""></picture>
+      </div>
       <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="gallery.html" class="active">Gallery</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li class="nav-cta-mobile" style="margin-top:20px; display:flex; flex-direction:column; gap:12px; width:100%;">
+          <li class="nav-link-item"><a href="index.html"><span class="nav-link-num">01</span><span class="nav-link-text">Home<em>Start here</em></span></a></li>
+          <li class="nav-link-item"><a href="services.html"><span class="nav-link-num">02</span><span class="nav-link-text">Services<em>Full catalog</em></span></a></li>
+          <li class="nav-link-item"><a href="gallery.html" class="active"><span class="nav-link-num">03</span><span class="nav-link-text">Gallery<em>See the work</em></span></a></li>
+          <li class="nav-link-item"><a href="about.html"><span class="nav-link-num">04</span><span class="nav-link-text">About<em>Who we are</em></span></a></li>
+          <li class="nav-link-item"><a href="contact.html"><span class="nav-link-num">05</span><span class="nav-link-text">Contact<em>Get a quote</em></span></a></li>
+          <li class="nav-cta-mobile" style="margin-top:8px; display:flex; flex-direction:column; gap:12px; width:100%;">
             <a href="#" data-wa-link data-wa-context="a service" class="btn btn-whatsapp btn-block">Chat on WhatsApp</a>
+            <a href="#" data-call-link class="btn btn-outline btn-block">Call Now</a>
           </li>
       </ul>
     </nav>
@@ -149,78 +153,89 @@
       </div>
 
       <div class="grid grid-3">
-
-        <div class="card reveal" data-category="exterior" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> Full body kit install — front 3/4
+        <div class="card reveal photo-card" data-category="exterior" style="padding:0; overflow:hidden;" data-lightbox data-caption="Widebody Supra — Front 3/4 — Mukono workshop bay">
+          <div class="kb-media" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-supra-exterior.webp" type="image/webp"><img src="assets/img/dk-supra-exterior.jpg" alt="Widebody Supra — Front 3/4 — Mukono workshop bay" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>Widebody Supra</b><span>Front 3/4 — Mukono workshop bay</span></div>
         </div>
-        <div class="card reveal" data-category="wheels" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> Alloy wheel close-up, post-install
+        <div class="card reveal photo-card" data-category="wheels" style="padding:0; overflow:hidden;" data-lightbox data-caption="Wheel refinish — Before &amp; after, same wheel">
+          <div class="kb-media kb-alt" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-wheel-before-after-composite.webp" type="image/webp"><img src="assets/img/dk-wheel-before-after-composite.jpg" alt="Wheel refinish — Before &amp; after, same wheel" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>Wheel refinish</b><span>Before &amp; after, same wheel</span></div>
         </div>
-        <div class="card reveal" data-category="wraps" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> Matte wrap — full vehicle, side profile
+        <div class="card reveal photo-card" data-category="wraps" style="padding:0; overflow:hidden;" data-lightbox data-caption="Satin wrap install — In progress — hood panel">
+          <div class="kb-media" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-wrap-install.webp" type="image/webp"><img src="assets/img/dk-wrap-install.jpg" alt="Satin wrap install — In progress — hood panel" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>Satin wrap install</b><span>In progress — hood panel</span></div>
         </div>
-        <div class="card reveal" data-category="performance" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> Exhaust system upgrade detail
+        <div class="card reveal photo-card" data-category="performance" style="padding:0; overflow:hidden;" data-lightbox data-caption="Twin-turbo build — Full engine bay fabrication">
+          <div class="kb-media kb-alt" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-engine-bay.webp" type="image/webp"><img src="assets/img/dk-engine-bay.jpg" alt="Twin-turbo build — Full engine bay fabrication" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>Twin-turbo build</b><span>Full engine bay fabrication</span></div>
         </div>
-        <div class="card reveal" data-category="interior" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> Racing seat + ambient lighting cabin shot
+        <div class="card reveal photo-card" data-category="interior" style="padding:0; overflow:hidden;" data-lightbox data-caption="Custom cabin retrim — Leather &amp; Alcantara, red stitch">
+          <div class="kb-media" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-interior-cabin.webp" type="image/webp"><img src="assets/img/dk-interior-cabin.jpg" alt="Custom cabin retrim — Leather &amp; Alcantara, red stitch" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>Custom cabin retrim</b><span>Leather &amp; Alcantara, red stitch</span></div>
         </div>
-        <div class="card reveal" data-category="detailing" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> Ceramic coating — water beading detail
+        <div class="card reveal photo-card" data-category="detailing" style="padding:0; overflow:hidden;" data-lightbox data-caption="Ceramic coating — Water-beading, fresh application">
+          <div class="kb-media kb-alt" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-ceramic-beading.webp" type="image/webp"><img src="assets/img/dk-ceramic-beading.jpg" alt="Ceramic coating — Water-beading, fresh application" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>Ceramic coating</b><span>Water-beading, fresh application</span></div>
         </div>
-        <div class="card reveal" data-category="exterior" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> Rear diffuser + spoiler fitment
+        <div class="card reveal photo-card" data-category="exterior" style="padding:0; overflow:hidden;" data-lightbox data-caption="LC300 overland build — Roof rack, rooftop tent, brush guard">
+          <div class="kb-media" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-lc300-modified-field.webp" type="image/webp"><img src="assets/img/dk-lc300-modified-field.jpg" alt="LC300 overland build — Roof rack, rooftop tent, brush guard" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>LC300 overland build</b><span>Roof rack, rooftop tent, brush guard</span></div>
         </div>
-        <div class="card reveal" data-category="wheels" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> Coilover suspension install
+        <div class="card reveal photo-card" data-category="wheels" style="padding:0; overflow:hidden;" data-lightbox data-caption="Forged wheel fitment — Carbon fender, deep-dish bronze">
+          <div class="kb-media kb-alt" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-wheel-fender-closeup.webp" type="image/webp"><img src="assets/img/dk-wheel-fender-closeup.jpg" alt="Forged wheel fitment — Carbon fender, deep-dish bronze" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>Forged wheel fitment</b><span>Carbon fender, deep-dish bronze</span></div>
         </div>
-        <div class="card reveal" data-category="wraps" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> PPF application — front bumper
+        <div class="card reveal photo-card" data-category="exterior" style="padding:0; overflow:hidden;" data-lightbox data-caption="LC300 off-road bumper — Light bar &amp; all-terrain tyres">
+          <div class="kb-media" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-lc300-modified-lot.webp" type="image/webp"><img src="assets/img/dk-lc300-modified-lot.jpg" alt="LC300 off-road bumper — Light bar &amp; all-terrain tyres" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>LC300 off-road bumper</b><span>Light bar &amp; all-terrain tyres</span></div>
         </div>
-        <div class="card reveal" data-category="performance" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> ECU remap session, laptop connected
+        <div class="card reveal photo-card" data-category="wheels" style="padding:0; overflow:hidden;" data-lightbox data-caption="Camry stance &amp; wheels — Lowered, black forged wheels">
+          <div class="kb-media kb-alt" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-camry-modified.webp" type="image/webp"><img src="assets/img/dk-camry-modified.jpg" alt="Camry stance &amp; wheels — Lowered, black forged wheels" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>Camry stance &amp; wheels</b><span>Lowered, black forged wheels</span></div>
         </div>
-        <div class="card reveal" data-category="interior" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> Dashboard + steering wheel retrim
+        <div class="card reveal photo-card" data-category="interior" style="padding:0; overflow:hidden;" data-lightbox data-caption="Alcantara wheel &amp; cluster — Red centre stripe, digital dash">
+          <div class="kb-media" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-interior-wheel-dash.webp" type="image/webp"><img src="assets/img/dk-interior-wheel-dash.jpg" alt="Alcantara wheel &amp; cluster — Red centre stripe, digital dash" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>Alcantara wheel &amp; cluster</b><span>Red centre stripe, digital dash</span></div>
         </div>
-        <div class="card reveal" data-category="detailing" style="padding:0; overflow:hidden;">
-          <div class="photo-slot" style="aspect-ratio:4/3; border:none; border-radius:0;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg>
-            <b>Add photo:</b> Engine bay detailing, before/after
+        <div class="card reveal photo-card" data-category="detailing" style="padding:0; overflow:hidden;" data-lightbox data-caption="Paint correction — Dual-action polish, swirl removal">
+          <div class="kb-media kb-alt" style="aspect-ratio:4/3;">
+            <picture><source srcset="assets/img/dk-detailing-polish.webp" type="image/webp"><img src="assets/img/dk-detailing-polish.jpg" alt="Paint correction — Dual-action polish, swirl removal" loading="lazy"></picture>
           </div>
+          <span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M9 11h4M11 9v4"/></svg></span>
+          <div class="photo-card-caption"><b>Paint correction</b><span>Dual-action polish, swirl removal</span></div>
         </div>
       </div>
     </div>
@@ -260,15 +275,15 @@
     <div class="container">
       <div class="section-head reveal">
         <div><span class="eyebrow">Before &amp; After</span><h2>Drag to compare</h2></div>
-        <p>Reusable slider component — pair any two project photos to show the transformation.</p>
+        <p>The kind of stance-and-wheels transformation we deliver — drag the handle to see the change.</p>
       </div>
       <div class="grid grid-2">
         <div class="reveal">
           <div class="ba-slider">
             <span class="ba-tag before-tag">Before</span>
             <span class="ba-tag after-tag">After</span>
-            <div class="ba-layer ba-after"><div class="photo-slot" style="border:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg><b>Add photo:</b> After — body kit + wrap</div></div>
-            <div class="ba-layer ba-before"><div class="photo-slot" style="border:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg><b>Add photo:</b> Before — stock</div></div>
+            <div class="ba-layer ba-after"><picture><source srcset="assets/img/dk-lc300-modified-lot.webp" type="image/webp"><img src="assets/img/dk-lc300-modified-lot.jpg" alt="LC300 after — off-road bumper, light bar and all-terrain wheels" loading="lazy"></picture></div>
+            <div class="ba-layer ba-before"><picture><source srcset="assets/img/dk-lc300-stock.webp" type="image/webp"><img src="assets/img/dk-lc300-stock.jpg" alt="LC300 before — stock bumper and factory wheels" loading="lazy"></picture></div>
             <div class="ba-divider"></div>
         <div class="ba-handle" tabindex="0" role="slider" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><div class="ba-handle-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4 2 8l4 4M10 4l4 4-4 4"/></svg></div></div>
           </div>
@@ -277,8 +292,8 @@
           <div class="ba-slider">
             <span class="ba-tag before-tag">Before</span>
             <span class="ba-tag after-tag">After</span>
-            <div class="ba-layer ba-after"><div class="photo-slot" style="border:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg><b>Add photo:</b> After — full detailing</div></div>
-            <div class="ba-layer ba-before"><div class="photo-slot" style="border:none;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-4 4-3-3-6 6"/></svg><b>Add photo:</b> Before — dull paint</div></div>
+            <div class="ba-layer ba-after"><picture><source srcset="assets/img/dk-camry-modified.webp" type="image/webp"><img src="assets/img/dk-camry-modified.jpg" alt="Camry after — lowered stance, black forged wheels, front lip" loading="lazy"></picture></div>
+            <div class="ba-layer ba-before"><picture><source srcset="assets/img/dk-camry-stock.webp" type="image/webp"><img src="assets/img/dk-camry-stock.jpg" alt="Camry before — stock ride height and factory wheels" loading="lazy"></picture></div>
             <div class="ba-divider"></div>
         <div class="ba-handle" tabindex="0" role="slider" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><div class="ba-handle-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4 2 8l4 4M10 4l4 4-4 4"/></svg></div></div>
           </div>

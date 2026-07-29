@@ -55,18 +55,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Mobile nav toggle ----
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
+  const navMenuBg = document.querySelector('.nav-menu-bg');
   if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('is-open');
-      navToggle.classList.toggle('is-open', open);
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => {
+    const closeNav = () => {
       navLinks.classList.remove('is-open');
       navToggle.classList.remove('is-open');
+      navMenuBg?.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-    }));
+    };
+    const openNav = () => {
+      navLinks.classList.add('is-open');
+      navToggle.classList.add('is-open');
+      navMenuBg?.classList.add('is-open');
+      navToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      navLinks.querySelector('.nav-link-item a')?.focus({ preventScroll: true });
+    };
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.contains('is-open') ? closeNav() : openNav();
+    });
+    navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeNav));
+    navLinks.addEventListener('click', (e) => { if (e.target === navLinks) closeNav(); });
+    navMenuBg?.addEventListener('click', closeNav);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('is-open')) closeNav();
+    });
   }
 
   // ---- Scroll reveal ----
