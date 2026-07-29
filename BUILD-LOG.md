@@ -259,3 +259,19 @@ not a genuine second video. Left honestly empty pending real workshop footage.
 **Verified live** via Playwright: video element reports `readyState: 4` (fully
 loaded/playable), correct 1280x720 dimensions, `paused: false` (confirmed actually
 autoplaying), browser selected the WebM source as expected, zero failed requests.
+
+## Gallery video showcase — temporary stand-in (29 Jul 2026)
+
+Per explicit instruction, the same `hero-loop.mp4`/`.webm` (DK logo reveal) now
+also plays in the Gallery page's "Workshop In Motion" video showcase, as a
+temporary stand-in until real workshop/install footage is filmed.
+
+To keep this honest rather than pretending it's workshop footage, the section
+copy was changed from "A looping workshop or driving reel goes here..." to
+"Brand reel for now — real workshop and install footage will replace this as
+jobs are filmed." Poster updated to match (`hero-loop-poster.jpg`).
+
+Verified live: video loads and plays correctly once scrolled into view (the
+viewport-aware IntersectionObserver system from Round 2 correctly holds it paused
+until visible, then plays — confirmed via `currentTime` advancing and successful
+206 partial-content network responses for the video file).
